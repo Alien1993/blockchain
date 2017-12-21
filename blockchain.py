@@ -1,6 +1,6 @@
 import hashlib
 import json
-form time import time
+from time import time
 
 
 class Blockchain:
@@ -11,7 +11,7 @@ class Blockchain:
         # Creates genesis block
         self.new_block(previous_hash=1, proof=100)
 
-    def new_block(self):
+    def new_block(self, proof, previous_hash=None):
         """
         Creates a new Block in this Blockchain
 
@@ -70,8 +70,8 @@ class Blockchain:
     def proof_of_work(self, last_proof):
         """
         Simple Proof of Work Algorithm:
-         - Find a number p' such that hash(pp') contains 4 leading zeroes, where
-            p is the previous p'
+         - Find a number p' such that hash(pp') contains 4 leading zeroes,
+           where p is the previous p'
          - p is the previous proof, and p' is the new proof
 
          :param last_proof: <int>
@@ -87,7 +87,7 @@ class Blockchain:
     @staticmethod
     def valid_proof(last_proof, proof):
         """
-        Validates proof: does hash(last_proof, proof) contains 4 leading zeroes?
+        Validates proof: does hash(last_proof, proof) contains 4 leading zeroes
 
         :param last_proof: <int> Previous Proof
         :param proof: <int> Current Proof

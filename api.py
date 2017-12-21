@@ -1,6 +1,6 @@
 from uuid import uuid4
 
-from flask import Flask
+from flask import Flask, jsonify
 
 from blockchain import Blockchain
 
@@ -19,9 +19,11 @@ blockchain = Blockchain()
 def mine():
     return 'This will mine a new Block'
 
+
 @app.route('/transactions/new', methods=['POST'])
 def new_transaction():
     return 'This will add a new transaction'
+
 
 @app.route('/chain', methods=['GET'])
 def full_chain():
